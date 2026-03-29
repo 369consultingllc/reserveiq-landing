@@ -2,177 +2,581 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ReserveIQ | Financial Clarity for HOA Boards</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReserveIQ | Financial clarity for HOA boards</title>
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f7f9fc;
-      color: #1a1a1a;
-      line-height: 1.6;
+    :root {
+      --bg: #0b1220;
+      --panel: #111a2e;
+      --panel-2: #16213a;
+      --text: #e8eefc;
+      --muted: #a8b4d3;
+      --line: rgba(255,255,255,0.08);
+      --accent: #5ea0ff;
+      --accent-2: #65d6ad;
+      --warn: #f4b860;
+      --danger: #ff7b7b;
+      --shadow: 0 18px 50px rgba(0,0,0,0.32);
+      --radius: 20px;
+      --max: 1180px;
     }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(94,160,255,0.16), transparent 28%),
+        radial-gradient(circle at top left, rgba(101,214,173,0.10), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
     .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-      text-align: center;
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(11,18,32,0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08101e;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 0.22s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #7eb2ff);
+      color: #08101e;
+      box-shadow: 0 10px 30px rgba(94,160,255,0.25);
+    }
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 72px 0 46px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(94,160,255,0.25);
+      background: rgba(94,160,255,0.08);
+      color: #cde0ff;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 1.05;
+      margin: 0 0 18px;
+      letter-spacing: -0.03em;
     }
 
-    h2 {
-      font-size: 28px;
-      margin-top: 60px;
+    .hero p {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 0 28px;
     }
 
-    p {
-      font-size: 18px;
-      color: #555;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
     }
 
-    .hero-sub {
-      font-size: 20px;
-      margin-bottom: 30px;
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
     }
 
-    .video {
-      margin: 30px 0;
+    .mini-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    iframe {
+    .video-wrap {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .video-wrap iframe {
       width: 100%;
-      height: 500px;
-      border-radius: 12px;
-      border: none;
-    }
-
-    .cta {
-      display: inline-block;
-      padding: 14px 28px;
-      margin-top: 20px;
-      background: #1f77b4;
-      color: white;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 18px;
+      display: block;
+      background: #000;
     }
 
     .section {
-      margin-top: 60px;
+      padding: 38px 0;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 24px;
     }
 
-    li {
-      margin: 10px 0;
-      font-size: 18px;
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.12;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
     }
 
-    .footer {
-      margin-top: 80px;
-      font-size: 14px;
-      color: #888;
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.025));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .callout {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(101,214,173,0.08);
+      border: 1px solid rgba(101,214,173,0.18);
+      color: #d7f7eb;
+      font-weight: 600;
+    }
+
+    .quote-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100%;
+      background: linear-gradient(160deg, rgba(94,160,255,0.14), rgba(101,214,173,0.08));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .quote {
+      font-size: 1.25rem;
+      line-height: 1.4;
+      color: #f2f6ff;
+      margin: 0;
+    }
+
+    .demo-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .step {
+      padding: 22px;
+      border-radius: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .step-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07101f;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .footer-cta {
+      text-align: center;
+      padding: 54px 0 74px;
+    }
+
+    .footer-cta p {
+      max-width: 760px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .demo-flow,
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 44px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-actions,
+      .nav-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   </style>
 </head>
-
 <body>
-
-  <div class="container">
-
-    <!-- HERO -->
-    <h1>ReserveIQ</h1>
-    <p class="hero-sub">
-      Financial clarity for HOA boards
-    </p>
-    <p>
-      Understand your cash, budget, and reserve risk — and make confident decisions before problems arise.
-    </p>
-
-    <!-- VIDEO -->
-    <div class="video">
-      <iframe
-        src="https://www.loom.com/embed/ace4ce22ac01414cb7960335f28c169a"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <a href="https://hoa-ai.onrender.com/" class="cta">
-      Try the Demo
-    </a>
-
-    <!-- PROBLEM -->
-    <div class="section">
-      <h2>Most HOA boards don’t realize there’s a problem — until it’s too late</h2>
-      <ul>
-        <li>Underfunded reserves</li>
-        <li>Misleading “under budget” signals</li>
-        <li>Cash shortfalls</li>
-        <li>Unclear decisions around dues</li>
-      </ul>
-      <p>
-        Boards are left interpreting spreadsheets instead of making decisions.
-      </p>
-    </div>
-
-    <!-- SOLUTION -->
-    <div class="section">
-      <h2>ReserveIQ turns financial data into clear decisions</h2>
-      <ul>
-        <li>See your true financial position instantly</li>
-        <li>Understand cash vs budget vs reserves</li>
-        <li>Identify risk before it becomes a problem</li>
-        <li>Get practical guidance on dues and funding</li>
-      </ul>
-    </div>
-
-    <!-- VALUE -->
-    <div class="section">
-      <h2>Built for HOA boards — not accountants</h2>
-      <p>
-        As someone who’s served on HOA boards, ReserveIQ was designed to remove the guesswork from financial decisions.
-      </p>
-    </div>
-
-    <!-- OUTCOME -->
-    <div class="section">
-      <h2>Make better decisions with confidence</h2>
-      <ul>
-        <li>Avoid surprises</li>
-        <li>Plan ahead</li>
-        <li>Walk into meetings prepared</li>
-        <li>Communicate clearly with your board</li>
-      </ul>
-    </div>
-
-    <!-- CTA -->
-    <div class="section">
-      <h2>Get started with ReserveIQ</h2>
-      <p>
-        See how your HOA’s financial picture really looks.
-      </p>
-      <a href="https://hoa-ai.onrender.com/" class="cta">
-        Try the Demo
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <div class="brand-badge">R</div>
+        <div>ReserveIQ</div>
       </a>
+      <nav class="nav-links">
+        <a href="#solution">Solution</a>
+        <a href="#platform">Platform</a>
+        <a href="#demo">How It Works</a>
+        <a href="#story">Why It Exists</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">Explore Features</a>
+        <a class="btn btn-primary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">Try the Demo</a>
+      </div>
     </div>
+  </header>
 
-    <!-- FOOTER -->
-    <div class="footer">
-      © 2026 ReserveIQ
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Financial clarity for HOA boards</div>
+          <h1>Know Your HOA’s Financial Risk Before It Becomes a Crisis</h1>
+          <p>
+            Understand your cash, budget, and reserve risk — and make confident decisions before problems arise.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">See the Platform in Action</a>
+            <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">Try a Demo HOA</a>
+          </div>
+          <div class="hero-points">
+            <div class="mini-card"><strong>Cash vs Budget Clarity</strong><br />Know when being under budget still means cash is tight.</div>
+            <div class="mini-card"><strong>Board-Ready Decisions</strong><br />Turn financial data into next-step recommendations the board can use.</div>
+            <div class="mini-card"><strong>Insight to Execution</strong><br />Move from risk detection into planning and action.</div>
+          </div>
+        </div>
+
+        <div class="video-wrap">
+          <iframe
+            src="https://www.loom.com/embed/ace4ce22ac01414cb7960335f28c169a"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Most HOA boards don’t realize there’s a problem until it’s too late</h2>
+          <p>
+            Underfunded reserves, misleading “under budget” signals, cash shortfalls, and unclear dues decisions leave boards interpreting spreadsheets instead of making decisions.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>The problem</h3>
+            <p>
+              Traditional HOA systems track transactions, but they do not help boards understand what those numbers mean or what they should do next.
+            </p>
+            <div class="callout">
+              ReserveIQ helps HOA boards stop guessing and start making informed financial decisions.
+            </div>
+          </div>
+
+          <div class="feature-list">
+            <div class="feature">
+              <strong>See your true financial position instantly</strong>
+              Understand cash, budget, and reserve risk in one place.
+            </div>
+            <div class="feature">
+              <strong>Identify risk before it becomes a problem</strong>
+              Surface reserve pressure, tight cash, and misleading budget signals early.
+            </div>
+            <div class="feature">
+              <strong>Get practical guidance on dues and funding</strong>
+              See a board-friendly range of next-step options.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="solution">
+      <div class="container">
+        <div class="section-head">
+          <h2>ReserveIQ turns financial data into clear decisions</h2>
+          <p>
+            Built specifically for HOA boards that need clarity, not more spreadsheet interpretation.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="feature-list">
+            <div class="feature">
+              <strong>Cash vs Budget Clarity</strong>
+              Know the difference between being under budget and having real cash available.
+            </div>
+            <div class="feature">
+              <strong>Risk Alerts</strong>
+              Instantly identify reserve risks, cash constraints, and financial pressure points.
+            </div>
+            <div class="feature">
+              <strong>Dues Strategy</strong>
+              See recommended dues ranges based on actual risk, not just a generic increase.
+            </div>
+            <div class="feature">
+              <strong>Board Summary Reports</strong>
+              Generate clear, board-ready summaries in seconds.
+            </div>
+          </div>
+
+          <div class="quote-box">
+            <p class="quote">
+              “As someone who’s served on HOA boards, I built this to help boards move from raw spreadsheet data to clear, confident decisions.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="platform">
+      <div class="container">
+        <div class="section-head">
+          <h2>From insight to execution</h2>
+          <p>
+            Once the board understands the financial picture, it can move into planning and action with confidence.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Capital Planning Intelligence</h3>
+            <p>Plan major projects with visibility into funding impact, timing, reserve pressure, and risk.</p>
+          </div>
+          <div class="card">
+            <h3>Project Tracking</h3>
+            <p>Track HOA projects from planning through completion in one place.</p>
+          </div>
+          <div class="card">
+            <h3>Bid Packages</h3>
+            <p>Collect, compare, and manage vendor bids with structure instead of scattered spreadsheets and email threads.</p>
+          </div>
+          <div class="card">
+            <h3>Vendor Intelligence</h3>
+            <p>Maintain vendor history, compare performance, and make more confident decisions over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-head">
+          <h2>From data to decisions in minutes</h2>
+          <p>No spreadsheets. No guesswork. Just clarity.</p>
+        </div>
+
+        <div class="demo-flow">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Enter or upload HOA data</h3>
+            <p>Use real HOA balances, monthly spending, budgets, reserve items, or manual entry for a quick scenario.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Refresh the financial snapshot</h3>
+            <p>Instantly calculate budget variance, cash position, reserve risk, dues strategy, and financial health.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Act with confidence</h3>
+            <p>Move from insights into board summaries, planning, projects, bids, and vendor decisions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="container grid-2">
+        <div class="card">
+          <h2>Designed by HOA leadership, for HOA boards</h2>
+          <p>
+            ReserveIQ was built from firsthand HOA board experience — with a focus on making financial decisions clearer, faster, and more confident.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Why that matters</h3>
+          <p>
+            Boards need to know: Are we actually okay? Do we need to raise dues? Can we afford this project? Are reserves strong enough? What should we do next?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-cta">
+      <div class="container">
+        <div class="section-head" style="margin: 0 auto 18px; text-align: center;">
+          <h2>Give your board clarity before it’s too late</h2>
+          <p>
+            Help your HOA understand financial risk, make better decisions, and act with confidence.
+          </p>
+        </div>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn btn-primary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">Try the Demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div>ReserveIQ</div>
+      <div>Financial clarity for HOA boards.</div>
     </div>
-
-  </div>
-
+  </footer>
 </body>
 </html>
