@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReserveIQ Terms & Conditions</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --border: #d9e1ec;
+      --primary: #0f4c81;
+      --primary-soft: #eaf3fb;
+      --accent: #1f7a8c;
+      --warning: #8a5a00;
+      --shadow: 0 12px 30px rgba(15, 76, 129, 0.08);
+      --radius: 18px;
+      --maxw: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f4c81 0%, #1f7a8c 100%);
+      color: white;
+      padding: 64px 20px 48px;
+    }
+
+    .hero-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin-top: 16px;
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .meta {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.96rem;
+    }
+
+    .container {
+      max-width: var(--maxw);
+      margin: -22px auto 60px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .topbar {
+      padding: 18px 24px;
+      background: #fbfdff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .topbar strong {
+      color: var(--primary);
+    }
+
+    .jump-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .jump-links a {
+      text-decoration: none;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .content {
+      padding: 30px 24px 34px;
+    }
+
+    .notice {
+      background: #fff8e8;
+      border: 1px solid #efd9a7;
+      color: #5a4300;
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+    }
+
+    .notice strong {
+      color: var(--warning);
+    }
+
+    section {
+      padding: 10px 0 18px;
+      border-bottom: 1px solid #edf1f6;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.28rem;
+      color: var(--primary);
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul {
+      margin: 10px 0 12px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .subhead {
+      font-weight: 700;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      color: #223046;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding: 20px 24px 28px;
+      border-top: 1px solid var(--border);
+      background: #fbfdff;
+    }
+
+    .footer p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .acceptance {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      border: 1px solid #cfe2f4;
+    }
+
+    .acceptance strong {
+      color: var(--primary);
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding: 52px 16px 42px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .content,
+      .topbar,
+      .footer {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">HOA-FI Legal</div>
+      <h1>Terms &amp; Conditions</h1>
+      <p class="subtitle">
+        These Terms &amp; Conditions govern access to and use of the ReserveIQ platform.
+        By creating an account, subscribing, or using the Service, you agree to these terms.
+      </p>
+      <div class="meta">
+        <span><strong>Business:</strong> 369 Consulting LLC</span>
+        <span><strong>Governing Law:</strong> Iowa, United States</span>
+        <span><strong>Effective Date:</strong> [Insert Effective Date]</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <div class="topbar">
+        <div><strong>ReserveIQ</strong></div>
+        <nav class="jump-links" aria-label="Quick links">
+          <a href="#advice">Disclaimer</a>
+          <a href="#payments">Payments</a>
+          <a href="#data">Data</a>
+          <a href="#liability">Liability</a>
+        </nav>
+      </div>
+
+      <div class="content">
+        <div class="notice">
+          <strong>Important:</strong> ReserveIQ provides financial decision-support tools and informational insights only.
+          It does not provide legal advice, accounting advice, reserve study certification, or investment advice.
+        </div>
+
+        <section id="acceptance">
+          <h2>1. Acceptance of Terms</h2>
+          <p>
+            By accessing or using ReserveIQ, you agree to be bound by these Terms &amp; Conditions and any additional policies
+            incorporated by reference. If you do not agree to these terms, you may not access or use the Service.
+          </p>
+        </section>
+
+        <section id="service">
+          <h2>2. Description of Service</h2>
+          <p>
+            ReserveIQ is a software platform designed to help homeowners associations, board members, treasurers,
+            community leaders, property managers, and related users organize financial information, analyze funding needs,
+            review reserve-related projections, and generate reports and planning insights.
+          </p>
+          <p>The Service may include features such as:</p>
+          <ul>
+            <li>Financial dashboards and balance summaries</li>
+            <li>Reserve funding forecasts and scenario modeling</li>
+            <li>Budget and spending analysis</li>
+            <li>Board-facing summaries, reports, and decision-support narratives</li>
+            <li>Document, project, and vendor-related organizational tools</li>
+          </ul>
+        </section>
+
+        <section id="advice">
+          <h2>3. No Financial, Legal, or Professional Advice</h2>
+          <p>
+            ReserveIQ is provided for informational and planning purposes only. The Service does not constitute legal,
+            tax, accounting, investment, insurance, engineering, reserve specialist, or other professional advice.
+          </p>
+          <p>
+            Any output, recommendation, projection, chart, summary, or narrative generated by ReserveIQ is based on data,
+            assumptions, and user inputs and should not be relied upon as the sole basis for board action or financial decisions.
+          </p>
+          <p>
+            Users are responsible for consulting qualified professionals, including attorneys, CPAs, reserve specialists,
+            engineers, insurance professionals, and licensed advisors, where appropriate.
+          </p>
+        </section>
+
+        <section id="accounts">
+          <h2>4. User Accounts and Eligibility</h2>
+          <p>
+            To use certain features of ReserveIQ, you may be required to create an account and provide accurate,
+            current, and complete information.
+          </p>
+          <p>You agree to:</p>
+          <ul>
+            <li>Maintain the confidentiality of your login credentials</li>
+            <li>Promptly update account information when it changes</li>
+            <li>Accept responsibility for activity occurring under your account</li>
+            <li>Use the Service only for lawful and authorized purposes</li>
+          </ul>
+          <p>
+            You must be authorized to act on behalf of your HOA, management company, or organization if you are entering data,
+            creating subscriptions, or using the platform in a business or board capacity.
+          </p>
+        </section>
+
+        <section id="responsibilities">
+          <h2>5. User Responsibilities</h2>
+          <p>
+            You are solely responsible for the information you enter into the Service, including uploaded documents,
+            account details, budgets, reserve information, invoices, contracts, financial statements, and related records.
+          </p>
+          <p>You agree that you will not:</p>
+          <ul>
+            <li>Upload false, misleading, infringing, or unlawful content</li>
+            <li>Attempt to interfere with or disrupt the Service</li>
+            <li>Reverse engineer, copy, scrape, or exploit the platform beyond permitted use</li>
+            <li>Use ReserveIQ to violate applicable laws, regulations, or governing documents</li>
+          </ul>
+        </section>
+
+        <section id="subscriptions">
+          <h2>6. Subscription Terms</h2>
+          <p>
+            Certain features of ReserveIQ are available only through a paid subscription. Subscription plans, billing cycles,
+            and included features may be described on the pricing or signup page.
+          </p>
+          <p>
+            By subscribing, you authorize ReserveIQ to charge the applicable subscription fees and any related taxes on a recurring basis,
+            unless and until your subscription is canceled.
+          </p>
+          <p>
+            Subscription access continues for the purchased billing period and automatically renews unless canceled before the next renewal date.
+          </p>
+        </section>
+
+        <section id="payments">
+          <h2>7. Payments, Renewals, and Refunds</h2>
+          <p>
+            Fees are billed in advance on a recurring basis according to the subscription plan selected by the user.
+          </p>
+          <ul>
+            <li>All fees are non-refundable except where required by law or expressly stated otherwise</li>
+            <li>Failure to pay may result in suspension or termination of access</li>
+            <li>ReserveIQ may change subscription pricing with reasonable prior notice</li>
+            <li>Price changes will apply at the next renewal period unless otherwise stated</li>
+          </ul>
+        </section>
+
+        <section id="data">
+          <h2>8. Data Ownership and License</h2>
+          <p>
+            You retain ownership of the data and materials you upload to the Service. By using ReserveIQ, you grant
+            369 Consulting LLC a limited, non-exclusive license to host, store, process, reproduce, and analyze your data
+            solely for the purpose of operating, maintaining, securing, and improving the Service.
+          </p>
+          <p>
+            ReserveIQ may use aggregated and anonymized usage and performance data to improve the platform, provided that such use
+            does not identify you, your HOA, or any individual resident.
+          </p>
+          <p>
+            ReserveIQ does not sell user financial data to third parties.
+          </p>
+        </section>
+
+        <section id="accuracy">
+          <h2>9. Data Accuracy, Assumptions, and Forecast Limitations</h2>
+          <p>
+            ReserveIQ depends on user-provided information, uploaded documents, assumptions, formulas, and forecasting models.
+            Because projections involve uncertainty, ReserveIQ does not warrant that any result, recommendation, reserve projection,
+            dues estimate, budget forecast, or scenario analysis will be complete, accurate, or predictive of future outcomes.
+          </p>
+          <p>
+            Users acknowledge that actual results may differ materially due to inflation, vendor pricing, deferred maintenance,
+            emergencies, changes in scope, insurance events, legal requirements, market changes, or incomplete data.
+          </p>
+        </section>
+
+        <section id="privacy">
+          <h2>10. Privacy and Security</h2>
+          <p>
+            Use of the Service is also subject to the ReserveIQ Privacy Policy. While ReserveIQ takes reasonable measures to protect
+            user information, no internet-based service can guarantee absolute security.
+          </p>
+          <p>
+            You are responsible for controlling access to your account and for determining whether the data you upload may include
+            sensitive, confidential, or regulated information.
+          </p>
+        </section>
+
+        <section id="ip">
+          <h2>11. Intellectual Property</h2>
+          <p>
+            ReserveIQ and all related software, branding, designs, content, code, workflows, models, graphics, page layouts,
+            and platform functionality are the property of 369 Consulting LLC or its licensors and are protected by applicable
+            intellectual property laws.
+          </p>
+          <p>
+            Except for the limited right to use the Service under these Terms, no rights are granted to you. You may not copy,
+            modify, distribute, sell, sublicense, or create derivative works from the Service without prior written permission.
+          </p>
+        </section>
+
+        <section id="availability">
+          <h2>12. Service Availability and Changes</h2>
+          <p>
+            ReserveIQ may modify, suspend, or discontinue any aspect of the Service at any time, including features,
+            subscription plans, integrations, or support offerings.
+          </p>
+          <p>
+            ReserveIQ does not guarantee uninterrupted or error-free availability and is not liable for delays, outages,
+            maintenance periods, or data access interruptions.
+          </p>
+        </section>
+
+        <section id="liability">
+          <h2>13. Limitation of Liability</h2>
+          <p>
+            To the fullest extent permitted by law, 369 Consulting LLC, ReserveIQ, and their affiliates, officers, employees,
+            contractors, licensors, and service providers shall not be liable for any indirect, incidental, consequential,
+            special, exemplary, or punitive damages, including loss of profits, loss of data, loss of goodwill, budgeting errors,
+            reserve underfunding, missed opportunities, project delays, or business interruption arising from or related to the use of,
+            or inability to use, the Service.
+          </p>
+          <p>
+            To the fullest extent permitted by law, the total cumulative liability of ReserveIQ for any claim arising out of or related
+            to the Service shall not exceed the amount paid by you to ReserveIQ during the twelve (12) months preceding the event giving rise to the claim.
+          </p>
+        </section>
+
+        <section id="indemnity">
+          <h2>14. Indemnification</h2>
+          <p>
+            You agree to defend, indemnify, and hold harmless 369 Consulting LLC and its affiliates, officers, employees,
+            contractors, and agents from and against any claims, damages, liabilities, losses, costs, and expenses, including reasonable attorneys’ fees,
+            arising out of or related to your use of the Service, your data, your violation of these Terms, or your violation of any law or third-party right.
+          </p>
+        </section>
+
+        <section id="termination">
+          <h2>15. Suspension and Termination</h2>
+          <p>
+            ReserveIQ may suspend or terminate your access to the Service at any time if you violate these Terms,
+            fail to pay applicable fees, misuse the Service, or create risk or legal exposure for ReserveIQ or others.
+          </p>
+          <p>
+            You may stop using the Service and cancel your subscription according to the cancellation terms presented at signup or in your account settings.
+          </p>
+        </section>
+
+        <section id="law">
+          <h2>16. Governing Law</h2>
+          <p>
+            These Terms are governed by and construed in accordance with the laws of the State of Iowa, without regard to conflict-of-law principles.
+          </p>
+        </section>
+
+        <section id="updates">
+          <h2>17. Changes to These Terms</h2>
+          <p>
+            ReserveIQ may update these Terms from time to time. Updated versions will be posted on this page with a revised effective date.
+            Your continued use of the Service after updated Terms become effective constitutes acceptance of the revised Terms.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2>18. Contact Information</h2>
+          <p>
+            If you have questions about these Terms &amp; Conditions, please contact:
+          </p>
+          <p>
+            <strong>369 Consulting LLC</strong><br />
+            Email: [Insert Email Address]<br />
+            Mailing Address: [Insert Business Address]
+          </p>
+        </section>
+      </div>
+
+      <div class="footer">
+        <p>
+          This draft is designed for presentation on your landing page and subscription flow. Before launch,
+          it should be reviewed by a qualified attorney to ensure compliance with your business model,
+          billing setup, privacy practices, and applicable laws.
+        </p>
+        <div class="acceptance">
+          <strong>Suggested signup language:</strong><br />
+          “By creating an account and subscribing to ReserveIQ, I agree to the Terms &amp; Conditions and Privacy Policy.”
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
