@@ -35,6 +35,7 @@
     }
 
     a { color: inherit; text-decoration: none; }
+
     .container {
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
@@ -104,11 +105,13 @@
     }
 
     .btn:hover { transform: translateY(-1px); }
+
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), #7eb2ff);
       color: #08101e;
       box-shadow: 0 10px 30px rgba(94,160,255,0.25);
     }
+
     .btn-secondary {
       background: transparent;
       border-color: var(--line);
@@ -309,6 +312,121 @@
       margin-bottom: 16px;
     }
 
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.025));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .pricing-card-featured {
+      border-color: rgba(94,160,255,0.42);
+      background: linear-gradient(180deg, rgba(94,160,255,0.10), rgba(255,255,255,0.03));
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08101e;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .pricing-plan {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .pricing-price {
+      font-size: 2.3rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .pricing-price span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-left: 6px;
+    }
+
+    .pricing-subtext {
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-size: 1rem;
+    }
+
+    .pricing-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .pricing-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .pricing-list li::before {
+      content: "✓";
+      color: #b8f0db;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .pricing-note {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+    }
+
+    .pricing-actions {
+      margin-top: auto;
+    }
+
+    .pricing-footnote {
+      margin-top: 22px;
+    }
+
+    .pricing-disclaimer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 18px;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .footer-cta {
       text-align: center;
       padding: 54px 0 74px;
@@ -332,7 +450,8 @@
       .hero-grid,
       .grid-2,
       .demo-flow,
-      .hero-points {
+      .hero-points,
+      .pricing-grid {
         grid-template-columns: 1fr;
       }
 
@@ -369,10 +488,11 @@
         <a href="#solution">Solution</a>
         <a href="#platform">Platform</a>
         <a href="#demo">How It Works</a>
+        <a href="#pricing">Pricing</a>
         <a href="#story">Why It Exists</a>
       </nav>
       <div class="nav-cta">
-        <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">Explore Features</a>
+        <a class="btn btn-secondary" href="#pricing">View Pricing</a>
         <a class="btn btn-primary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">Try the Demo</a>
       </div>
     </div>
@@ -385,7 +505,7 @@
           <div class="eyebrow">Financial clarity for HOA boards</div>
           <h1>Know Your HOA’s Financial Risk Before It Becomes a Crisis</h1>
           <p>
-            Understand your cash, budget, and reserve risk — and make confident decisions before problems arise.
+            Understand your cash, budget, and reserve risk — and make more confident board decisions before problems arise.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">See the Platform in Action</a>
@@ -393,24 +513,25 @@
           </div>
           <p style="margin-top:14px; font-size:13px; color:#9fb3d9; line-height:1.5;">
             By continuing, you agree to our
-            <a href="/terms.html" target="_blank" 
+            <a href="/terms.html" target="_blank"
                style="color:#9fb3d9; text-decoration:underline;"
                onmouseover="this.style.opacity='1'"
                onmouseout="this.style.opacity='0.8'">
               Terms &amp; Conditions
             </a>
             and
-            <a href="/privacy.html" target="_blank" 
+            <a href="/privacy.html" target="_blank"
                style="color:#9fb3d9; text-decoration:underline;"
                onmouseover="this.style.opacity='1'"
                onmouseout="this.style.opacity='0.8'">
               Privacy Policy
             </a>.
-          </p>          
+          </p>
+
           <div class="hero-points">
             <div class="mini-card"><strong>Cash vs Budget Clarity</strong><br />Know when being under budget still means cash is tight.</div>
-            <div class="mini-card"><strong>Board-Ready Decisions</strong><br />Turn financial data into next-step recommendations the board can use.</div>
-            <div class="mini-card"><strong>Insight to Execution</strong><br />Move from risk detection into planning and action.</div>
+            <div class="mini-card"><strong>Board-Ready Decisions</strong><br />Turn financial data into guidance the board can use in real discussions.</div>
+            <div class="mini-card"><strong>Financial Guidance</strong><br />Move from raw numbers to clearer discussions about reserves, dues, and major spending decisions.</div>
           </div>
         </div>
 
@@ -428,7 +549,7 @@
         <div class="section-head">
           <h2>Most HOA boards don’t realize there’s a problem until it’s too late</h2>
           <p>
-            Underfunded reserves, misleading “under budget” signals, cash shortfalls, and unclear dues decisions leave boards interpreting spreadsheets instead of making decisions.
+            Underfunded reserves, misleading “under budget” signals, cash shortfalls, and unclear dues decisions leave boards interpreting spreadsheets instead of making confident financial decisions.
           </p>
         </div>
 
@@ -436,7 +557,7 @@
           <div class="card">
             <h3>The problem</h3>
             <p>
-              Traditional HOA systems track transactions, but they do not help boards understand what those numbers mean or what they should do next.
+              Traditional HOA systems track transactions, but they do not help boards understand what those numbers mean, what risks are emerging, or what options deserve discussion next.
             </p>
             <div class="callout">
               ReserveIQ helps HOA boards stop guessing and start making informed financial decisions.
@@ -464,7 +585,7 @@
     <section class="section" id="solution">
       <div class="container">
         <div class="section-head">
-          <h2>ReserveIQ turns financial data into clear decisions</h2>
+          <h2>ReserveIQ turns financial data into clearer board decisions</h2>
           <p>
             Built specifically for HOA boards that need clarity, not more spreadsheet interpretation.
           </p>
@@ -482,7 +603,7 @@
             </div>
             <div class="feature">
               <strong>Dues Strategy</strong>
-              See recommended dues ranges based on actual risk, not just a generic increase.
+              See suggested dues ranges based on actual risk, not just a generic increase.
             </div>
             <div class="feature">
               <strong>Board Summary Reports</strong>
@@ -492,7 +613,7 @@
 
           <div class="quote-box">
             <p class="quote">
-              “As someone who’s served on HOA boards, I built this to help boards move from raw spreadsheet data to clear, confident decisions.”
+              “As someone who’s served on HOA boards, I built this to help boards move from raw spreadsheet data to clearer, more confident financial decisions.”
             </p>
           </div>
         </div>
@@ -502,9 +623,9 @@
     <section class="section" id="platform">
       <div class="container">
         <div class="section-head">
-          <h2>From insight to execution</h2>
+          <h2>Financial insight that supports real board decisions</h2>
           <p>
-            Once the board understands the financial picture, it can move into planning and action with confidence.
+            Beyond the financial snapshot, ReserveIQ helps boards evaluate the financial impact of projects, compare bids, and document the reasoning behind key spending decisions.
           </p>
         </div>
 
@@ -514,16 +635,16 @@
             <p>Plan major projects with visibility into funding impact, timing, reserve pressure, and risk.</p>
           </div>
           <div class="card">
-            <h3>Project Tracking</h3>
-            <p>Track HOA projects from planning through completion in one place.</p>
+            <h3>Project Financial Planning</h3>
+            <p>See how upcoming projects affect reserves, cash position, and the board’s financial flexibility.</p>
           </div>
           <div class="card">
-            <h3>Bid Packages</h3>
-            <p>Collect, compare, and manage vendor bids with structure instead of scattered spreadsheets and email threads.</p>
+            <h3>Bid Cost Comparison</h3>
+            <p>Compare vendor bids with a clearer view of cost differences and financial impact.</p>
           </div>
           <div class="card">
-            <h3>Vendor Intelligence</h3>
-            <p>Maintain vendor history, compare performance, and make more confident decisions over time.</p>
+            <h3>Board Decision Tracking</h3>
+            <p>Document the reasoning behind major financial decisions so the board has a clear record over time.</p>
           </div>
         </div>
       </div>
@@ -550,8 +671,91 @@
           <div class="step">
             <div class="step-num">3</div>
             <h3>Act with confidence</h3>
-            <p>Move from insights into board summaries, planning, projects, bids, and vendor decisions.</p>
+            <p>Use board summaries, planning insights, and financial comparisons to support better discussions and decisions.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head" style="text-align: center; margin: 0 auto 28px;">
+          <h2>Simple pricing for clearer HOA financial decisions</h2>
+          <p>
+            Start with a free demo. Create a real account without payment. Upgrade only when your board is ready.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-plan">Financial Snapshot</div>
+            <div class="pricing-price">$29<span>/month per HOA</span></div>
+            <p class="pricing-subtext">
+              Know where your HOA stands today.
+            </p>
+
+            <ul class="pricing-list">
+              <li>Current Fund Balances</li>
+              <li>Manage Financial Data</li>
+              <li>Reserve projections</li>
+              <li>Financial health indicators</li>
+              <li>AI-powered board summary</li>
+              <li>Downloadable board-ready PDF reports</li>
+            </ul>
+
+            <div class="pricing-note">
+              Best for HOAs that want clarity on cash, reserves, and financial risk.
+            </div>
+
+            <div class="pricing-actions">
+              <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">Start with Financial Snapshot</a>
+            </div>
+          </div>
+
+          <div class="pricing-card pricing-card-featured">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-plan">Financial Decision Intelligence</div>
+            <div class="pricing-price">$59<span>/month per HOA</span></div>
+            <p class="pricing-subtext">
+              Make more confident board decisions with deeper financial insight.
+            </p>
+
+            <ul class="pricing-list">
+              <li>Everything in Financial Snapshot</li>
+              <li>Scenario modeling</li>
+              <li>Reserve risk forecasting</li>
+              <li>Capital planning insights</li>
+              <li>Bid cost comparison insights</li>
+              <li>Suggested dues ranges</li>
+              <li>“What happens if we do nothing?” analysis</li>
+              <li>Board decision tracking</li>
+            </ul>
+
+            <div class="pricing-note">
+              Best for boards that want stronger financial planning and more confidence before major decisions.
+            </div>
+
+            <div class="pricing-actions">
+              <a class="btn btn-primary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">Choose Decision Intelligence</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-footnote">
+          <div class="card" style="text-align: center;">
+            <h3 style="margin-bottom: 12px;">Try it before your board commits</h3>
+            <p style="margin-bottom: 16px;">
+              Explore a demo HOA first. Then convert to a real account with no payment required. Upgrade only when your board is ready to use live financial data.
+            </p>
+            <div class="hero-actions" style="justify-content: center; margin-bottom: 0;">
+              <a class="btn btn-primary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">Try a Demo HOA</a>
+              <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/" target="_blank" rel="noopener noreferrer">Convert to a Real Account</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-disclaimer">
+          ReserveIQ provides financial insights and guidance to support HOA board decisions. Final decisions always remain with the board.
         </div>
       </div>
     </section>
@@ -567,7 +771,7 @@
         <div class="card">
           <h3>Why that matters</h3>
           <p>
-            Boards need to know: Are we actually okay? Do we need to raise dues? Can we afford this project? Are reserves strong enough? What should we do next?
+            Boards need to know: Are we actually okay? Do we need to raise dues? Can we afford this project? Are reserves strong enough? What options should we discuss next?
           </p>
         </div>
       </div>
@@ -578,7 +782,7 @@
         <div class="section-head" style="margin: 0 auto 18px; text-align: center;">
           <h2>Give your board clarity before it’s too late</h2>
           <p>
-            Help your HOA understand financial risk, make better decisions, and act with confidence.
+            Help your HOA understand financial risk, make better decisions, and move into board discussions with confidence.
           </p>
         </div>
         <div class="hero-actions" style="justify-content:center;">
