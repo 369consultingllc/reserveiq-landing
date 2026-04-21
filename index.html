@@ -160,7 +160,21 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 26px;
+      margin-bottom: 14px;
+    }
+
+    .demo-choice-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .demo-helper {
+      margin: 0 0 26px;
+      font-size: 0.95rem;
+      color: #9fb3d9;
+      max-width: 720px;
     }
 
     .hero-points {
@@ -439,13 +453,6 @@
       font-size: 1.05rem;
     }
 
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 24px 0 40px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
     @media (max-width: 980px) {
       .hero-grid,
       .grid-2,
@@ -470,7 +477,8 @@
       }
 
       .hero-actions,
-      .nav-cta {
+      .nav-cta,
+      .demo-choice-row {
         flex-direction: column;
         align-items: stretch;
       }
@@ -493,7 +501,7 @@
       </nav>
       <div class="nav-cta">
         <a class="btn btn-secondary" href="#pricing">View Pricing</a>
-        <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1" target="_blank" rel="noopener noreferrer">Try the Demo</a>
+        <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1&mode=detailed" target="_blank" rel="noopener noreferrer">Try the Demo</a>
       </div>
     </div>
   </header>
@@ -507,10 +515,20 @@
           <p>
             Understand your cash, budget, and reserve risk — and make more confident board decisions before problems arise.
           </p>
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1" target="_blank" rel="noopener noreferrer">See the Platform in Action</a>
-            <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/?demo=1" target="_blank" rel="noopener noreferrer">Try a Demo HOA</a>
+            <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1&mode=detailed" target="_blank" rel="noopener noreferrer">See the Platform in Action</a>
           </div>
+
+          <div class="demo-choice-row">
+            <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/?demo=1&mode=detailed" target="_blank" rel="noopener noreferrer">Try Demo: Detailed Actuals</a>
+            <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/?demo=1&mode=monthly" target="_blank" rel="noopener noreferrer">Try Demo: Monthly Totals</a>
+          </div>
+
+          <p class="demo-helper">
+            Explore two real-world scenarios: full category-level bookkeeping or simple monthly total tracking.
+          </p>
+
           <p style="margin-top:14px; font-size:13px; color:#9fb3d9; line-height:1.5;">
             By continuing, you agree to our
             <a href="/terms.html" target="_blank"
@@ -708,7 +726,7 @@
             </div>
 
             <div class="pricing-actions">
-              <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/?demo=1" target="_blank" rel="noopener noreferrer">Start with Financial Snapshot</a>
+              <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/?demo=1&mode=detailed" target="_blank" rel="noopener noreferrer">Start with Financial Snapshot</a>
             </div>
           </div>
 
@@ -736,7 +754,7 @@
             </div>
 
             <div class="pricing-actions">
-              <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1" target="_blank" rel="noopener noreferrer">Choose Decision Intelligence</a>
+              <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1&mode=detailed" target="_blank" rel="noopener noreferrer">Choose Decision Intelligence</a>
             </div>
           </div>
         </div>
@@ -748,8 +766,7 @@
               Explore a demo HOA first. Then convert to a real account with no payment required. Upgrade only when your board is ready to use live financial data.
             </p>
             <div class="hero-actions" style="justify-content: center; margin-bottom: 0;">
-              <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1" target="_blank" rel="noopener noreferrer">Try a Demo HOA</a>
-              <a class="btn btn-secondary" href="https://hoa-ai.onrender.com/?demo=1" target="_blank" rel="noopener noreferrer">Convert to a Real Account</a>
+              <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1&mode=detailed" target="_blank" rel="noopener noreferrer">Try the Demo</a>
             </div>
           </div>
         </div>
@@ -786,7 +803,7 @@
           </p>
         </div>
         <div class="hero-actions" style="justify-content:center;">
-          <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1" target="_blank" rel="noopener noreferrer">Try the Demo</a>
+          <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1&mode=detailed" target="_blank" rel="noopener noreferrer">Try the Demo</a>
         </div>
       </div>
     </section>
