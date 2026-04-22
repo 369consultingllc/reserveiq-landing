@@ -936,8 +936,8 @@
               </div>
 
               <div>
-                <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1&mode=detailed" target="_blank" rel="noopener noreferrer">See the Full Financial Picture</a>
-                <p class="budget-cta-copy">
+                <a id="dynamicDemoCTA" class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1&mode=detailed" target="_blank" rel="noopener noreferrer">See the Full Financial Picture</a>
+                <p class="budget-cta-copy" id="dynamicCTAText">
                   ReserveIQ helps HOA boards go beyond a simple budget gap to understand reserve risk, funding pressure, and future board decisions.
                 </p>
               </div>
@@ -1218,6 +1218,8 @@
       const monthlyVarianceValue = document.getElementById('monthlyVarianceValue');
       const annualVarianceValue = document.getElementById('annualVarianceValue');
       const budgetMessage = document.getElementById('budgetMessage');
+      const dynamicCTA = document.getElementById('dynamicDemoCTA');
+      const dynamicCTAText = document.getElementById('dynamicCTAText');
 
       function formatCurrency(value) {
         return new Intl.NumberFormat('en-US', {
@@ -1288,6 +1290,19 @@
         } else {
           state = 'negative';
           message = 'You may be operating at a monthly shortfall. Over time, this can put pressure on cash flow and may increase the risk of deferred maintenance, dues increases, or special assessments.';
+        }
+
+        if (dynamicCTA && dynamicCTAText) {
+          if (state === 'negative') {
+            dynamicCTA.textContent = 'See How to Fix This Shortfall';
+            dynamicCTAText.textContent = 'Understand what’s driving the gap and what options your board has before it turns into a special assessment.';
+          } else if (state === 'neutral') {
+            dynamicCTA.textContent = 'See What This Misses';
+            dynamicCTAText.textContent = 'Break-even budgets often hide reserve pressure and future costs. See the full financial picture.';
+          } else {
+            dynamicCTA.textContent = 'Are You Actually Covered?';
+            dynamicCTAText.textContent = 'A surplus doesn’t guarantee long-term stability. See how reserves and future projects impact your position.';
+          }
         }
 
         monthlyVarianceValue.classList.add(state);
@@ -1362,3 +1377,4 @@
   </script>
 </body>
 </html>
+
