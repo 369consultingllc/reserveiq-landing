@@ -453,12 +453,165 @@
       font-size: 1.05rem;
     }
 
+    .budget-check-shell {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: stretch;
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(94,160,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(94,160,255,0.18);
+      box-shadow: var(--shadow);
+    }
+
+    .budget-check-lead {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 680px;
+      margin: 0 0 22px;
+    }
+
+    .budget-check-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .budget-field label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.97rem;
+    }
+
+    .budget-field input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(7, 16, 31, 0.75);
+      color: var(--text);
+      font-size: 1rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .budget-field input::placeholder {
+      color: #7f92b8;
+    }
+
+    .budget-field input:focus {
+      outline: none;
+      border-color: rgba(94,160,255,0.6);
+      box-shadow: 0 0 0 4px rgba(94,160,255,0.12);
+      transform: translateY(-1px);
+    }
+
+    .budget-hint,
+    .budget-footnote,
+    .budget-cta-copy {
+      color: var(--muted);
+    }
+
+    .budget-hint {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .budget-results {
+      background: rgba(7,16,31,0.72);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 100%;
+    }
+
+    .budget-placeholder {
+      color: #c6d4f3;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .budget-results-content {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .budget-metric {
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .budget-metric-label {
+      font-size: 0.9rem;
+      color: #93a8cf;
+      margin-bottom: 6px;
+    }
+
+    .budget-metric-value {
+      font-size: 1.6rem;
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .budget-metric-value.positive { color: #8ce0bc; }
+    .budget-metric-value.neutral { color: #ffd18b; }
+    .budget-metric-value.negative { color: #ff9c9c; }
+
+    .budget-message {
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .budget-message.positive {
+      background: rgba(101,214,173,0.10);
+      border-color: rgba(101,214,173,0.18);
+      color: #d7f7eb;
+    }
+
+    .budget-message.neutral {
+      background: rgba(244,184,96,0.10);
+      border-color: rgba(244,184,96,0.18);
+      color: #ffe5bc;
+    }
+
+    .budget-message.negative {
+      background: rgba(255,123,123,0.10);
+      border-color: rgba(255,123,123,0.18);
+      color: #ffd0d0;
+    }
+
+    .budget-footnote {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .budget-cta-copy {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 12px 0 0;
+    }
+
     @media (max-width: 980px) {
       .hero-grid,
       .grid-2,
       .demo-flow,
       .hero-points,
-      .pricing-grid {
+      .pricing-grid,
+      .budget-check-shell {
         grid-template-columns: 1fr;
       }
 
@@ -481,6 +634,10 @@
       .demo-choice-row {
         flex-direction: column;
         align-items: stretch;
+      }
+
+      .budget-check-shell {
+        padding: 22px;
       }
     }
   </style>
@@ -558,6 +715,77 @@
             src="https://www.loom.com/embed/ace4ce22ac01414cb7960335f28c169a"
             allowfullscreen>
           </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quick-check">
+      <div class="container">
+        <div class="budget-check-shell">
+          <div>
+            <div class="eyebrow">Quick HOA Budget Check</div>
+            <h2>See Your HOA’s budget gap in seconds</h2>
+            <p class="budget-check-lead">
+              Enter a few basic numbers to get a simple snapshot of your monthly budgeted income, approximate monthly spending, and what that difference looks like across the year.
+            </p>
+
+            <div class="budget-check-form">
+              <div class="budget-field">
+                <label for="hoaUnits">Number of units</label>
+                <input type="number" id="hoaUnits" min="1" placeholder="e.g. 36" />
+              </div>
+
+              <div class="budget-field">
+                <label for="monthlyDues">Monthly dues per unit ($)</label>
+                <input type="number" id="monthlyDues" min="0" step="0.01" placeholder="e.g. 220" />
+              </div>
+
+              <div class="budget-field">
+                <label for="monthlyActuals">Approximate monthly actual expenses ($)</label>
+                <input type="number" id="monthlyActuals" min="0" step="0.01" placeholder="e.g. 7500" />
+              </div>
+            </div>
+
+            <p class="budget-hint">
+              No data is stored. This is just a quick estimate to help your board see whether your monthly dues appear to cover current operating spend.
+            </p>
+          </div>
+
+          <div class="budget-results">
+            <div class="budget-placeholder" id="budgetPlaceholder">
+              Enter your HOA’s numbers to see a simple monthly and annual snapshot. Then compare that to the full ReserveIQ demo to see what a quick estimate does not reveal.
+            </div>
+
+            <div class="budget-results-content" id="budgetResultsContent">
+              <div class="budget-metric">
+                <div class="budget-metric-label">Monthly Budgeted Income</div>
+                <div class="budget-metric-value" id="monthlyBudgetValue">$0</div>
+              </div>
+
+              <div class="budget-metric">
+                <div class="budget-metric-label">Monthly Variance</div>
+                <div class="budget-metric-value" id="monthlyVarianceValue">$0</div>
+              </div>
+
+              <div class="budget-metric">
+                <div class="budget-metric-label">Projected Annual Variance</div>
+                <div class="budget-metric-value" id="annualVarianceValue">$0</div>
+              </div>
+
+              <div class="budget-message" id="budgetMessage"></div>
+
+              <div class="budget-footnote">
+                This is a simplified estimate. It does not account for reserve funding, irregular expenses, delinquency, or future capital projects.
+              </div>
+
+              <div>
+                <a class="btn btn-primary" href="https://hoa-ai.onrender.com/?demo=1&mode=detailed" target="_blank" rel="noopener noreferrer">See the Full Financial Picture</a>
+                <p class="budget-cta-copy">
+                  ReserveIQ helps HOA boards go beyond a simple budget gap to understand reserve risk, funding pressure, and future board decisions.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -819,5 +1047,124 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const unitsInput = document.getElementById('hoaUnits');
+      const duesInput = document.getElementById('monthlyDues');
+      const actualsInput = document.getElementById('monthlyActuals');
+
+      const placeholder = document.getElementById('budgetPlaceholder');
+      const resultsContent = document.getElementById('budgetResultsContent');
+
+      const monthlyBudgetValue = document.getElementById('monthlyBudgetValue');
+      const monthlyVarianceValue = document.getElementById('monthlyVarianceValue');
+      const annualVarianceValue = document.getElementById('annualVarianceValue');
+      const budgetMessage = document.getElementById('budgetMessage');
+
+      function formatCurrency(value) {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          maximumFractionDigits: 0
+        }).format(value);
+      }
+
+      function clearClasses(el) {
+        el.classList.remove('positive', 'neutral', 'negative');
+      }
+
+      function trackBudgetCheck(eventName, detail) {
+        if (window.gtag) {
+          window.gtag('event', eventName, detail || {});
+        }
+      }
+
+      let hasStarted = false;
+      let hasCompleted = false;
+
+      function updateResults() {
+        const units = parseFloat(unitsInput.value);
+        const dues = parseFloat(duesInput.value);
+        const actuals = parseFloat(actualsInput.value);
+
+        const hasAnyValue = [unitsInput.value, duesInput.value, actualsInput.value].some(Boolean);
+        const hasAllValues = !isNaN(units) && units > 0 && !isNaN(dues) && dues >= 0 && !isNaN(actuals) && actuals >= 0;
+
+        if (hasAnyValue && !hasStarted) {
+          hasStarted = true;
+          trackBudgetCheck('budget_check_started');
+        }
+
+        if (!hasAllValues) {
+          placeholder.style.display = 'block';
+          resultsContent.style.display = 'none';
+          return;
+        }
+
+        const monthlyBudget = units * dues;
+        const monthlyVariance = monthlyBudget - actuals;
+        const annualVariance = monthlyVariance * 12;
+        const shortfallThreshold = monthlyBudget * 0.05;
+
+        placeholder.style.display = 'none';
+        resultsContent.style.display = 'flex';
+
+        monthlyBudgetValue.textContent = formatCurrency(monthlyBudget);
+        monthlyVarianceValue.textContent = formatCurrency(monthlyVariance);
+        annualVarianceValue.textContent = formatCurrency(annualVariance);
+
+        clearClasses(monthlyVarianceValue);
+        clearClasses(annualVarianceValue);
+        clearClasses(budgetMessage);
+
+        let state = 'positive';
+        let message = '';
+
+        if (monthlyVariance >= 0) {
+          state = 'positive';
+          message = 'You appear to be operating at a monthly surplus. That can be a good sign, but it does not show whether reserve funding and future capital needs are being adequately covered.';
+        } else if (Math.abs(monthlyVariance) <= shortfallThreshold) {
+          state = 'neutral';
+          message = 'You appear to be operating close to break-even. That may feel stable month to month, but many HOAs still face pressure from reserves, repairs, and timing of major expenses.';
+        } else {
+          state = 'negative';
+          message = 'You may be operating at a monthly shortfall. Over time, this can put pressure on cash flow and may increase the risk of deferred maintenance, dues increases, or special assessments.';
+        }
+
+        monthlyVarianceValue.classList.add(state);
+        annualVarianceValue.classList.add(state);
+        budgetMessage.classList.add(state);
+        budgetMessage.textContent = message;
+
+        if (!hasCompleted) {
+          hasCompleted = true;
+          trackBudgetCheck('budget_check_completed', {
+            monthly_budget: Math.round(monthlyBudget),
+            monthly_variance: Math.round(monthlyVariance),
+            annual_variance: Math.round(annualVariance),
+            variance_state: state
+          });
+        }
+      }
+
+      [unitsInput, duesInput, actualsInput].forEach((input) => {
+        input.addEventListener('input', updateResults);
+      });
+
+      document.querySelectorAll('a[href*="?demo=1"]').forEach((link) => {
+        link.addEventListener('click', function () {
+          const usedBudgetCheck = resultsContent.style.display === 'flex';
+          trackBudgetCheck('budget_check_demo_clicked', {
+            used_budget_check: usedBudgetCheck ? 'yes' : 'no',
+            cta_text: (this.textContent || '').trim()
+          });
+        });
+      });
+
+      updateResults();
+    })();
+  </script>
 </body>
 </html>
+
