@@ -209,6 +209,146 @@
       background: #000;
     }
 
+    .video-launcher {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(8,16,30,0.55), rgba(8,16,30,0.82)),
+        radial-gradient(circle at top right, rgba(94,160,255,0.28), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(101,214,173,0.22), transparent 30%),
+        #08101e;
+      cursor: pointer;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      text-align: left;
+      color: var(--text);
+      padding: 0;
+    }
+
+    .video-launcher:hover {
+      transform: translateY(-1px);
+    }
+
+    .video-launcher::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%2308101e'/%3E%3Crect x='120' y='120' width='1360' height='660' rx='30' fill='%23111a2e' stroke='%2324355b'/%3E%3Crect x='180' y='190' width='420' height='54' rx='12' fill='%235ea0ff' opacity='0.85'/%3E%3Crect x='180' y='280' width='600' height='28' rx='10' fill='%23344a73'/%3E%3Crect x='180' y='332' width='520' height='28' rx='10' fill='%23344a73'/%3E%3Crect x='180' y='384' width='430' height='28' rx='10' fill='%23344a73'/%3E%3Crect x='930' y='210' width='380' height='250' rx='18' fill='%2316213a' stroke='%2338538b'/%3E%3Crect x='930' y='500' width='170' height='130' rx='18' fill='%2316213a' stroke='%2338538b'/%3E%3Crect x='1140' y='500' width='170' height='130' rx='18' fill='%2316213a' stroke='%2338538b'/%3E%3Crect x='180' y='500' width='650' height='60' rx='16' fill='%2316213a' stroke='%2338538b'/%3E%3Crect x='180' y='590' width='650' height='60' rx='16' fill='%2316213a' stroke='%2338538b'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.88;
+    }
+
+    .video-launcher-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      gap: 14px;
+    }
+
+    .video-pill {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(8,16,30,0.72);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #dbe7ff;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .video-overlay-meta {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .video-overlay-copy h3 {
+      margin: 0 0 6px;
+      font-size: 1.22rem;
+      color: #f7fbff;
+    }
+
+    .video-overlay-copy p {
+      margin: 0;
+      color: #d3def4;
+      font-size: 0.96rem;
+      max-width: 420px;
+    }
+
+    .play-badge {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px 12px 12px;
+      border-radius: 999px;
+      background: rgba(8,16,30,0.82);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #f8fbff;
+      font-weight: 700;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+    }
+
+    .play-badge-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08101e;
+      font-size: 1rem;
+      padding-left: 2px;
+    }
+
+    .video-embed {
+      display: none;
+    }
+
+    .video-wrap.is-playing .video-launcher {
+      display: none;
+    }
+
+    .video-wrap.is-playing .video-embed {
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .video-launcher-content {
+        padding: 18px;
+      }
+
+      .video-overlay-copy h3 {
+        font-size: 1.06rem;
+      }
+
+      .video-overlay-copy p {
+        font-size: 0.92rem;
+      }
+
+      .play-badge {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
     .section {
       padding: 38px 0;
     }
@@ -710,11 +850,28 @@
           </div>
         </div>
 
-        <div class="video-wrap">
-          <iframe
-            src="https://www.loom.com/embed/ace4ce22ac01414cb7960335f28c169a"
-            allowfullscreen>
-          </iframe>
+        <div class="video-wrap" id="demoVideoWrap">
+          <button
+            class="video-launcher"
+            id="demoVideoLauncher"
+            type="button"
+            aria-label="Play ReserveIQ product demo video">
+            <div class="video-launcher-content">
+              <div class="video-pill">2-minute platform overview</div>
+              <div class="video-overlay-meta">
+                <div class="video-overlay-copy">
+                  <h3>Watch ReserveIQ in action</h3>
+                  <p>See how HOA boards can move from raw financial data to clearer decisions in just a few clicks.</p>
+                </div>
+                <div class="play-badge">
+                  <span class="play-badge-icon">▶</span>
+                  <span>Play demo</span>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          <div class="video-embed" id="demoVideoEmbed"></div>
         </div>
       </div>
     </section>
@@ -1082,6 +1239,7 @@
 
       let hasStarted = false;
       let hasCompleted = false;
+      let currentBudgetState = null;
 
       function updateResults() {
         const units = parseFloat(unitsInput.value);
@@ -1137,6 +1295,16 @@
         budgetMessage.classList.add(state);
         budgetMessage.textContent = message;
 
+        if (currentBudgetState !== state) {
+          currentBudgetState = state;
+          trackBudgetCheck('budget_check_result_state', {
+            result_state: state,
+            monthly_budget: Math.round(monthlyBudget),
+            monthly_variance: Math.round(monthlyVariance),
+            annual_variance: Math.round(annualVariance)
+          });
+        }
+
         if (!hasCompleted) {
           hasCompleted = true;
           trackBudgetCheck('budget_check_completed', {
@@ -1157,6 +1325,7 @@
           const usedBudgetCheck = resultsContent.style.display === 'flex';
           trackBudgetCheck('budget_check_demo_clicked', {
             used_budget_check: usedBudgetCheck ? 'yes' : 'no',
+            result_state: usedBudgetCheck && currentBudgetState ? currentBudgetState : 'not_applicable',
             cta_text: (this.textContent || '').trim()
           });
         });
@@ -1164,7 +1333,32 @@
 
       updateResults();
     })();
+
+    (function () {
+      const videoWrap = document.getElementById('demoVideoWrap');
+      const videoLauncher = document.getElementById('demoVideoLauncher');
+      const videoEmbed = document.getElementById('demoVideoEmbed');
+
+      if (!videoWrap || !videoLauncher || !videoEmbed) return;
+
+      const loomEmbedSrc = 'https://www.loom.com/embed/ace4ce22ac01414cb7960335f28c169a?autoplay=1';
+
+      videoLauncher.addEventListener('click', function () {
+        if (!videoEmbed.dataset.loaded) {
+          videoEmbed.innerHTML = '<iframe src="' + loomEmbedSrc + '" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+          videoEmbed.dataset.loaded = 'true';
+        }
+
+        videoWrap.classList.add('is-playing');
+
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'landing_video_played', {
+            event_category: 'engagement',
+            event_label: 'loom_demo_overlay'
+          });
+        }
+      });
+    })();
   </script>
 </body>
 </html>
-
